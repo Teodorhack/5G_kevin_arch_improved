@@ -1,0 +1,6 @@
+[submodule "external/open5gs-src"]
+	path = external/open5gs-src
+	url = https://github.com/open5gs/open5gs.git
+[submodule "external/srsran-src"]
+	path = external/srsran-src
+	url = https://github.com/srsran/srsRAN_project.git

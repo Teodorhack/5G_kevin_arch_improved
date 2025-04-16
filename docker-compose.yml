@@ -1,0 +1,48 @@
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.runCommand({ connectionStatus: 1})"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 5
+  open5gs:
+    build: 
+      context: .
+      dockerfile: open5gs/Dockerfile
+    container_name: open5gs
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb/open5gs
+      - OGS_LOG_LEVEL=debug
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    network_mode: host
+    volumes:
+      - ./open5gs/config:/etc/open5gs
+      - ./scripts:/scripts
+    command: ["/bin/sh", "-c", "chmod +x /scripts/start.sh && /scripts/start.sh"]
+    privileged: true
+    restart: unless-stopped
+
+  srsran:
+    build:
+      context: .
+      dockerfile: srsran/Dockerfile
+    container_name: srsran
+    privileged: true
+    network_mode: host
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:
+
