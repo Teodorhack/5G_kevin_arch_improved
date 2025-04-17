@@ -22,6 +22,7 @@ RUN apt update && apt install -y \
     libtalloc-dev \
     # mongodb-org \
     # mongodb-org-shell \
+    mongodb-mongosh \
     libmongoc-dev \
     curl \
     wget \
@@ -46,7 +47,14 @@ COPY external/open5gs-src /open5gs-src
 WORKDIR /open5gs-src
 
 RUN meson build --prefix=/open5gs-src/install && \
-    ninja -C build
+    ninja -C build && cd build && \
+    ninja install
+
+COPY scripts/init_configs.sh /scripts/init_configs.sh
+RUN chmod +x /scripts/init_configs.sh
+
+
+# RUN /scripts/init_configs.sh
 
 COPY scripts/start-open5gs.sh /start-open5gs.sh
 RUN chmod +x /start-open5gs.sh

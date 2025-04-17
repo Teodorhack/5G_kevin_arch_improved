@@ -5,6 +5,8 @@ services:
     restart: always
     volumes:
       - mongodb_data:/data/db
+    networks:
+      - open5gs-net
     ports:
       - "27017:27017"
     healthcheck:
@@ -26,11 +28,13 @@ services:
       - NET_ADMIN
     devices:
       - /dev/net/tun
-    network_mode: host
+    networks: 
+      - open5gs-net
     volumes:
-      - ./open5gs/config:/etc/open5gs
+      #- ./open5gs/config:/etc/open5gs # GIBTS nicht ???
+      - ./config/active_configs/open5gs:/config/active_configs/open5gs
       - ./scripts:/scripts
-    command: ["/bin/sh", "-c", "chmod +x /scripts/start.sh && /scripts/start.sh"]
+    #command: ["/bin/sh", "-c", "chmod +x /scripts/start.sh && /scripts/start.sh"]
     privileged: true
     restart: unless-stopped
 
@@ -40,9 +44,12 @@ services:
       dockerfile: srsran/Dockerfile
     container_name: srsran
     privileged: true
-    network_mode: host
+    networks:
+      - open5gs-net
     restart: unless-stopped
 
+networks:
+  open5gs-net:
 volumes:
   mongodb_data:
 
