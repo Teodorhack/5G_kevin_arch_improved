@@ -53,7 +53,7 @@ RUN meson build --prefix=/open5gs-src/install && \
 COPY scripts/init_configs.sh /scripts/init_configs.sh
 RUN chmod +x /scripts/init_configs.sh
 
-
+######
 # RUN /scripts/init_configs.sh
 
 COPY scripts/start-open5gs.sh /start-open5gs.sh
