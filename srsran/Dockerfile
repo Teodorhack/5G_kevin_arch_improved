@@ -38,3 +38,4 @@ RUN chmod +x /start-gnb.sh
 
 CMD ["/start-gnb.sh"]
 
+#
