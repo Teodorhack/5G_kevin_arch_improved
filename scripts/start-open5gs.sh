@@ -20,4 +20,8 @@ fi
 
 echo "🚀 Starting Open5GS..."
 # Hier kannst du den eigentlichen Startbefehl für Open5GS einfügen
-tail -f /dev/null
+#Here you can insert the actual start command for Open5GS.
+tail -f /dev/null 
+
+
+
