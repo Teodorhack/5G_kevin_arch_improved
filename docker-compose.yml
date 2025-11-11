@@ -2,19 +2,28 @@ version: "3.9"
 
 services:
   mongodb:
-    image: mongo:6
+    image: mongo:6.0
     container_name: mongodb
-    ports:
-      - "27017:27017"
+    restart: unless-stopped
+    privileged: true
+    command: >
+      bash -c "
+        sysctl -w fs.file-max=6815744 &&
+        sysctl -w vm.max_map_count=1677720 &&
+        mongod --quiet --bind_ip_all --setParameter diagnosticDataCollectionEnabled=false
+      "
     volumes:
       - mongodb_data:/data/db
     networks:
       - open5gs-net
+    ports:
+      - "27017:27017"
     healthcheck:
-      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 15s
 
   open5gs:
     build:
@@ -35,21 +44,33 @@ services:
     devices:
       - /dev/net/tun
     privileged: true
+    environment:
+      - MONGO_URI=mongodb://mongodb/open5gs
     healthcheck:
-      test: ["CMD", "pgrep", "open5gs-nrfd"]
-      interval: 10s
+      test: ["CMD-SHELL", "pgrep open5gs-nrfd || exit 1"]
+      interval: 15s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 20s
+    command: >
+      bash -c "
+        echo '🔧 Updating MongoDB URIs...';
+        find /config/active_config/open5gs -type f -name '*.yaml' -exec sed -i 's|mongodb://localhost/open5gs|mongodb://mongodb/open5gs|g' {} \;;
+        echo '✅ Configs updated. Starting Open5GS...';
+        /scripts/start-open5gs.sh
+      "
 
   srsran:
     build:
       context: .
       dockerfile: srsran/Dockerfile
     container_name: srsran
+    depends_on:
+      - open5gs
+    restart: unless-stopped
     privileged: true
     networks:
       - open5gs-net
-    restart: unless-stopped
 
 networks:
   open5gs-net:
