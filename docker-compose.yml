@@ -1,11 +1,21 @@
-version: "3.9"
+# ============================================
+# 🧱 DOCKER COMPOSE — Open5GS + MongoDB + srsRAN
+# (EN/RO bilingual comments)
+# ============================================
 
 services:
+
+  # ============================================
+  # 🧩 MongoDB Service — Open5GS Core Database
+  # ============================================
   mongodb:
     image: mongo:6.0
     container_name: mongodb
     restart: unless-stopped
     privileged: true
+    sysctls:                       # ✅ ensures IP forwarding & IPv6 OK everywhere
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.disable_ipv6: 0
     command: >
       bash -c "
         sysctl -w fs.file-max=6815744 &&
@@ -25,6 +35,9 @@ services:
       retries: 10
       start_period: 15s
 
+  # ============================================
+  # 🧩 Open5GS Core Network
+  # ============================================
   open5gs:
     build:
       context: .
@@ -52,14 +65,10 @@ services:
       timeout: 5s
       retries: 10
       start_period: 20s
-    command: >
-      bash -c "
-        echo '🔧 Updating MongoDB URIs...';
-        find /config/active_config/open5gs -type f -name '*.yaml' -exec sed -i 's|mongodb://localhost/open5gs|mongodb://mongodb/open5gs|g' {} \;;
-        echo '✅ Configs updated. Starting Open5GS...';
-        /scripts/start-open5gs.sh
-      "
 
+  # ============================================
+  # 🧩 srsRAN — Radio Access Network (RAN)
+  # ============================================
   srsran:
     build:
       context: .
@@ -72,8 +81,14 @@ services:
     networks:
       - open5gs-net
 
+# ============================================
+# 🌐 Docker network shared by all containers
+# ============================================
 networks:
   open5gs-net:
 
+# ============================================
+# 💾 Persistent storage volumes
+# ============================================
 volumes:
   mongodb_data:
