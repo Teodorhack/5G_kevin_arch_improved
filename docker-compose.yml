@@ -15,7 +15,7 @@ services:
       timeout: 10s
       retries: 5 
   open5gs:
-    build: 
+    build:
       context: .
       dockerfile: open5gs/Dockerfile
     container_name: open5gs
@@ -31,12 +31,11 @@ services:
     networks: 
       - open5gs-net
     volumes:
-      #- ./open5gs/config:/etc/open5gs # GIBTS nicht ???
-      - ./config/active_configs/open5gs:/config/active_configs/open5gs
+      - ./config/active_config/open5gs:/config/active_config/open5gs
       - ./scripts:/scripts
-    #command: ["/bin/sh", "-c", "chmod +x /scripts/start.sh && /scripts/start.sh"]
     privileged: true
     restart: unless-stopped
+
 
   srsran:
     build:
@@ -52,4 +51,3 @@ networks:
   open5gs-net:
 volumes:
   mongodb_data:
-
