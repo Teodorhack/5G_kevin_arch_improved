@@ -1,50 +1,71 @@
 #!/bin/bash
+set -e
 
 echo "⭕️ Starting Open5GS (improved startup sequence)..."
-
-CONFIG_PATH="/config/active_config/open5gs"
-TARGET_PATH="/open5gs-src/install/etc/open5gs"
-
-# Ensure config files are present
 echo "🔍 Checking configuration..."
-if [ -d "$CONFIG_PATH" ] && [ "$(ls -A $CONFIG_PATH)" ]; then
+
+# 🧩 1. Update MongoDB URI in configs
+echo "🔧 Updating MongoDB URIs in Open5GS configs..."
+find /config/active_config/open5gs -type f -name "*.yaml" -exec sed -i 's|mongodb://localhost/open5gs|mongodb://mongodb/open5gs|g' {} \;
+echo "✅ MongoDB URIs updated."
+
+# 🧩 2. Copy active configs into container
+if [ -d "/config/active_config/open5gs" ]; then
     echo "✅ Using host configuration."
-    cp -vr "$CONFIG_PATH"/* "$TARGET_PATH"
+    cp -r /config/active_config/open5gs/* /open5gs-src/install/etc/open5gs/
 else
-    echo "⚠️ Config missing, copying default configs."
-    mkdir -p "$CONFIG_PATH"
-    cp -vr "$TARGET_PATH"/* "$CONFIG_PATH"
+    echo "⚠️ No host configuration found. Using defaults."
 fi
 
+cd /open5gs-src/install/bin
+
+# 🧩 3. Start 5GC Core Network Functions
 echo "🚀 Starting NRF..."
-/open5gs-src/install/bin/open5gs-nrf-httpd &
-sleep 4
+./open5gs-nrfd &
 
 echo "🚀 Starting SCP..."
-/open5gs-src/install/bin/open5gs-scp-httpd &
-sleep 8
+./open5gs-scpd &
 
-echo "🚀 Starting control-plane services..."
-/open5gs-src/install/bin/open5gs-amfd &
-/open5gs-src/install/bin/open5gs-smfd &
-/open5gs-src/install/bin/open5gs-udmd &
-/open5gs-src/install/bin/open5gs-udr-httpd &
-/open5gs-src/install/bin/open5gs-ausfd &
-/open5gs-src/install/bin/open5gs-pcf-httpd &
-/open5gs-src/install/bin/open5gs-bsf-httpd &
+echo "🚀 Starting UDM..."
+./open5gs-udmd &
 
-echo "🚀 Starting EPC compatibility services..."
-/open5gs-src/install/bin/open5gs-mmed &
-/open5gs-src/install/bin/open5gs-hssd &
-/open5gs-src/install/bin/open5gs-sgwcd &
-/open5gs-src/install/bin/open5gs-pgwcd &
-/open5gs-src/install/bin/open5gs-pcrfd &
+echo "🚀 Starting UDR..."
+./open5gs-udrd &
+
+echo "🚀 Starting AUSF..."
+./open5gs-ausfd &
+
+echo "🚀 Starting PCF..."
+./open5gs-pcfd &
+
+echo "🚀 Starting NSSF..."
+./open5gs-nssfd &
+
+echo "🚀 Starting AMF..."
+./open5gs-amfd &
+
+echo "🚀 Starting SMF..."
+./open5gs-smfd &
 
 echo "🚀 Starting UPF..."
-/open5gs-src/install/bin/open5gs-upfd &
+./open5gs-upfd &
 
-echo "🚀 Starting WebUI..."
-/open5gs-src/install/bin/open5gs-webui &
+# 🧩 4. Optional — Legacy EPC (4G compatibility)
+echo "🚀 Starting HSS..."
+./open5gs-hssd &
 
+echo "🚀 Starting MME..."
+./open5gs-mmed &
+
+echo "🚀 Starting SGWC/SGWU..."
+./open5gs-sgwcd &
+./open5gs-sgwud &
+
+# 🧩 5. Wait and monitor logs
 echo "✅ All core services launched. Monitoring logs..."
-tail -f /open5gs-src/install/var/log/open5gs/*.log
+
+# Dacă logurile nu există încă, creează directorul
+mkdir -p /open5gs-src/install/var/log/open5gs
+touch /open5gs-src/install/var/log/open5gs/dummy.log
+
+tail -F /open5gs-src/install/var/log/open5gs/*.log

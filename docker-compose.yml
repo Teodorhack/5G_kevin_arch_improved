@@ -1,41 +1,45 @@
+version: "3.9"
+
 services:
   mongodb:
-    image: mongo:6.0
+    image: mongo:6
     container_name: mongodb
-    restart: always
+    ports:
+      - "27017:27017"
     volumes:
       - mongodb_data:/data/db
     networks:
       - open5gs-net
-    ports:
-      - "27017:27017"
     healthcheck:
-      test: ["CMD", "mongo", "--eval", "db.runCommand({ connectionStatus: 1})"]
-      interval: 1m30s
-      timeout: 10s
-      retries: 5 
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   open5gs:
     build:
       context: .
       dockerfile: open5gs/Dockerfile
     container_name: open5gs
     depends_on:
-      - mongodb
-    environment:
-      - MONGO_URI=mongodb://mongodb/open5gs
-      - OGS_LOG_LEVEL=debug
-    cap_add:
-      - NET_ADMIN
-    devices:
-      - /dev/net/tun
-    networks: 
+      mongodb:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
       - open5gs-net
     volumes:
       - ./config/active_config/open5gs:/config/active_config/open5gs
       - ./scripts:/scripts
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
     privileged: true
-    restart: unless-stopped
-
+    healthcheck:
+      test: ["CMD", "pgrep", "open5gs-nrfd"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   srsran:
     build:
@@ -49,5 +53,6 @@ services:
 
 networks:
   open5gs-net:
+
 volumes:
   mongodb_data:
