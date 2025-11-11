@@ -13,7 +13,7 @@ services:
       test: ["CMD", "mongo", "--eval", "db.runCommand({ connectionStatus: 1})"]
       interval: 1m30s
       timeout: 10s
-      retries: 5
+      retries: 5 
   open5gs:
     build: 
       context: .
