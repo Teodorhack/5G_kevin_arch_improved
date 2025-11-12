@@ -1,7 +1,8 @@
 # ============================================
 # 🧱 DOCKER COMPOSE — Open5GS + MongoDB + srsRAN
-# (EN/RO bilingual comments)
 # ============================================
+
+version: "3.9"
 
 services:
 
@@ -13,7 +14,7 @@ services:
     container_name: mongodb
     restart: unless-stopped
     privileged: true
-    sysctls:                       # ✅ ensures IP forwarding & IPv6 OK everywhere
+    sysctls:
       net.ipv4.ip_forward: 1
       net.ipv6.conf.all.disable_ipv6: 0
     command: >
@@ -80,6 +81,30 @@ services:
     privileged: true
     networks:
       - open5gs-net
+
+    # 🔌 Expune SDR-ul Ettus B205mini-i din host către container
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+
+    # ⚙️ Environment — control log, comportament UHD
+    environment:
+      - UHD_LOG_LEVEL=info
+      - DEBIAN_FRONTEND=noninteractive
+
+    # 📂 Volumes — include config complet srsRAN
+    volumes:
+      - ./scripts:/scripts
+      - ./external/srsran-src:/srsran-src
+      - ./config/active_config/srsran:/config/active_config/srsran
+
+    # 🩺 Healthcheck — verifică dacă procesul gNB rulează
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep srsran_app || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
 
 # ============================================
 # 🌐 Docker network shared by all containers
