@@ -1,11 +1,10 @@
 #!/bin/bash
-
 set -e
 
 OPEN5GS_IMAGE="emt_5gsa_docker-open5gs"
 SRSRAN_IMAGE="emt_5gsa_docker-srsran"
 
-CONFIG_PATH="config/active_configs/open5gs"
+CONFIG_PATH="config/active_config/open5gs"
 
 echo "🔨 Checking if Open5GS config directory exists and is not empty..."
 if [ -d "$CONFIG_PATH" ] && [ "$(find "$CONFIG_PATH" -mindepth 1 -print -quit 2>/dev/null)" ]; then
@@ -20,16 +19,10 @@ else
     echo "✅ Default Open5GS config extracted to $CONFIG_PATH."
 fi
 
-# mkdir -p active_configs/open5gs
-# echo "📦 Extracting Open5GS default config..."
-# docker run --rm \
-#     -v "$(pwd)/config/active_configs/open5gs:/config" \
-#     "$OPEN5GS_IMAGE" \
-#     bash -c "cp -r install/etc/open5gs/* /config"
-
+# Optional: pentru srsRAN (dacă vrei să extragi și default-ul srsran)
 # echo "📦 Extracting srsRAN default config..."
 # docker run --rm \
-#     -v "$(pwd)/config/srsran:/config" \
+#     -v "$(pwd)/config/active_config/srsran:/config" \
 #     "$SRSRAN_IMAGE" \
 #     bash -c "cp -r configs/* /config"
 
