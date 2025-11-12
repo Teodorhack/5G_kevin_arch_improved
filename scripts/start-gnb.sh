@@ -27,4 +27,5 @@ fi
 
 echo "⚙️ Starting srsRAN gNB using config: $CONFIG_FILE"
 
-exec srsran_app gnb --config_file "$CONFIG_FILE"
+#exec srsran_app gnb --config_file "$CONFIG_FILE"
+tail -f /dev/null
