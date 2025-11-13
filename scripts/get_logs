@@ -1,0 +1,38 @@
+# 🧱 1. Show all running containers (quick overview)
+echo "=== [1/7] Active Containers ==="
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | sort
+echo ""
+
+# 📦 2. Show MongoDB logs (recent startup)
+echo "=== [2/7] MongoDB - Last 15 log lines ==="
+docker logs --tail 15 mongodb 2>/dev/null | sed 's/^/   /'
+echo ""
+
+# 🌐 3. Show Open5GS core logs
+echo "=== [3/7] Open5GS - Last 20 log lines ==="
+docker logs --tail 20 open5gs 2>/dev/null | sed 's/^/   /'
+echo ""
+
+# 📡 4. Show srsRAN gNB logs
+echo "=== [4/7] srsRAN gNB - Last 20 log lines ==="
+docker logs --tail 20 srsran 2>/dev/null | sed 's/^/   /'
+echo ""
+
+# 🔗 5. Connectivity checks between core components
+echo "=== [5/7] Connectivity Tests ==="
+echo "→ open5gs → mongodb (27017)"
+docker exec open5gs bash -c "nc -zv mongodb 27017" 2>&1 || echo "   ✖ Failed or container not running"
+echo ""
+echo "→ srsran → mongodb (27017)"
+docker exec srsran bash -c "nc -zv mongodb 27017" 2>&1 || echo "   ✖ Failed or container not running"
+echo ""
+
+# 🩺 6. Check Open5GS NF processes (inside container)
+echo "=== [6/7] Open5GS NF Process List ==="
+docker exec open5gs bash -c "pgrep -a open5gs" 2>/dev/null || echo "   ✖ Open5GS not running or restarting"
+echo ""
+
+# 📊 7. Container health summary
+echo "=== [7/7] Container Health Summary ==="
+docker inspect --format='{{.Name}}: {{.State.Health.Status}}' $(docker ps -q) 2>/dev/null || echo "   ⚠️ No health data available"
+echo ""

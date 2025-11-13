@@ -1,0 +1,1224 @@
+[34m🌅 Starting 5GSA Docker environment...
+--------------------------------------(B[m
+[34m📦 Running config initialization...(B[m
+[34m🔨 Checking Open5GS config directory...(B[m
+[33m⚠️ Extracting default Open5GS config...(B[m
+[33m📦 Extracting default srsRAN config...(B[m
+cp: cannot stat 'configs/*': No such file or directory
+[34m🌅 Starting 5GSA Docker environment...
+--------------------------------------(B[m
+[34m📦 Running config initialization...(B[m
+[34m🔨 Checking Open5GS config directory...(B[m
+[32m✅ Open5GS config OK.(B[m
+[33m📦 Extracting default srsRAN config...(B[m
+⚠️ No default config folder found in image!
+[32m✅ Default srsRAN config extracted (best match found).(B[m
+time="2025-11-12T15:10:47+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[34m🚀 Launching containers...(B[m
+time="2025-11-12T15:10:48+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Network emt_5gsa_docker_open5gs-net  Creating
+ Network emt_5gsa_docker_open5gs-net  Created
+ Container mongodb  Creating
+ Container mongodb  Created
+ Container open5gs  Creating
+ Container open5gs  Created
+ Container srsran  Creating
+ Container srsran  Created
+ Container mongodb  Starting
+ Container mongodb  Started
+ Container mongodb  Waiting
+ Container mongodb  Healthy
+ Container open5gs  Starting
+ Container open5gs  Started
+ Container srsran  Starting
+ Container srsran  Started
+[32m📦 Active containers:(B[m
+mongodb   Up 10 seconds (healthy)                 0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+NAMES     STATUS                                  PORTS
+open5gs   Restarting (2) Less than a second ago   
+srsran    Up 1 second (health: starting)          
+[34m🔍 Checking health statuses...(B[m
+/srsran: starting
+/open5gs: unhealthy
+/mongodb: healthy
+
+[34m🧩 Recent logs:(B[m
+📄 Logs from open5gs:
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+
+📄 Logs from mongodb:
+   {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"startup"}}
+   {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+   {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+   {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+   {"t":{"$date":"2025-11-12T14:10:48.553+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+   {"t":{"$date":"2025-11-12T14:10:48.553+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+   {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+   {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}
+   {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+   {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"0 ms","Create storage engine":"298 ms","Write current PID to file":"0 ms","Write current PID to file":"0 ms","Initialize FCV before rebuilding indexes":"0 ms","Initialize FCV before rebuilding indexes":"1 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Rebuild indexes for collections":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Start transport layer":"0 ms","_initAndListen total elapsed time":"307 ms"}}}}
+   {"t":{"$date":"2025-11-12T14:10:53.456+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"127.0.0.1:40300","client":"conn1","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:10:53.488+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"127.0.0.1:40302","client":"conn2","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:10:53.488+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"127.0.0.1:40304","client":"conn3","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:10:53.492+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"127.0.0.1:40308","client":"conn4","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:10:53.493+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"127.0.0.1:40312","client":"conn5","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+[32m✅ Startup complete.(B[m
+👀 View all logs live? (y/N): [34m📡 Streaming logs (Ctrl+C to exit)...(B[m
+time="2025-11-12T15:11:06+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+mongodb  | fs.file-max = 6815744
+mongodb  | vm.max_map_count = 1677720
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.245Z"},"s":"I",  "c":"CONTROL",  "id":5760901, "ctx":"-","msg":"Applied --setParameter options","attr":{"serverParameters":{"diagnosticDataCollectionEnabled":{"default":true,"value":false}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.246+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"-","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.246+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"-","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set tcpFastOpenServer, tcpFastOpenClient, and tcpFastOpenQueueSize."}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationDonorService","namespace":"config.tenantMigrationDonors"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"TenantMigrationRecipientService","namespace":"config.tenantMigrationRecipients"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"REPL",     "id":5123008, "ctx":"main","msg":"Successfully registered PrimaryOnlyService","attr":{"service":"ShardSplitDonorService","namespace":"config.tenantSplitDonors"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"d6940a626e27"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"6.0.26","gitVersion":"0c4ec4b6005f75582ce208fc800f09f561b6c2e8","openSSLVersion":"OpenSSL 3.0.2 15 Mar 2022","modules":[],"allocator":"tcmalloc","environment":{"distmod":"ubuntu2204","distarch":"x86_64","target_arch":"x86_64"}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"22.04"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.247+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"},"setParameter":{"diagnosticDataCollectionEnabled":"false"},"systemLog":{"quiet":true}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.249+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.249+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+open5gs  | tput: No value for $TERM and no -T specified
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.249+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=15259M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.331+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":331500,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 1 through 2"}}}
+open5gs  | tput: No value for $TERM and no -T specified
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.373+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":373239,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 2 through 2"}}}
+open5gs  | tput: No value for $TERM and no -T specified
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.412+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":412283,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Main recovery loop: starting at 1/151680 to 2/256"}}}
+open5gs  | tput: No value for $TERM and no -T specified
+open5gs  | tput: No value for $TERM and no -T specified
+open5gs  | tput: No value for $TERM and no -T specified
+open5gs  | tput: No value for $TERM and no -T specified
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.469+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":469523,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 1 through 2"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.512+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":511970,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Recovering log 2 through 2"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.540+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":540552,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 209 milliseconds"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.540+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":540622,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.540+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":540634,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.540+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":540801,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery rollback to stable has successfully finished and ran for 0 milliseconds"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.542+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":542625,"thread":"1:0x74367e899cc0","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":6,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 103"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.546+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":546587,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery checkpoint has successfully finished and ran for 5 milliseconds"}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.546+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956648,"ts_usec":546613,"thread":"1:0x74367e899cc0","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":30,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"recovery was completed successfully and took 215ms, including 209ms for the log replay, 0ms for the rollback to stable, and 5ms for the checkpoint."}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.547+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":298}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.547+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.550+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.550+00:00"},"s":"W",  "c":"CONTROL",  "id":22138,   "ctx":"initandlisten","msg":"You are running this process as the root user, which is not recommended","tags":["startupWarnings"]}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"startup"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.551+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.553+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.553+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:48.554+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"0 ms","Create storage engine":"298 ms","Write current PID to file":"0 ms","Write current PID to file":"0 ms","Initialize FCV before rebuilding indexes":"0 ms","Initialize FCV before rebuilding indexes":"1 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Rebuild indexes for collections":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Start transport layer":"0 ms","_initAndListen total elapsed time":"307 ms"}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:53.456+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"127.0.0.1:40300","client":"conn1","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:53.488+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"127.0.0.1:40302","client":"conn2","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:53.488+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"127.0.0.1:40304","client":"conn3","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:53.492+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"127.0.0.1:40308","client":"conn4","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:10:53.493+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"127.0.0.1:40312","client":"conn5","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:03.711+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn6","msg":"client metadata","attr":{"remote":"127.0.0.1:37788","client":"conn6","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:03.744+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn7","msg":"client metadata","attr":{"remote":"127.0.0.1:37790","client":"conn7","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:03.744+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn8","msg":"client metadata","attr":{"remote":"127.0.0.1:37796","client":"conn8","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:03.748+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn9","msg":"client metadata","attr":{"remote":"127.0.0.1:37812","client":"conn9","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:03.749+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn10","msg":"client metadata","attr":{"remote":"127.0.0.1:37814","client":"conn10","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | 
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+open5gs  | tput: No value for $TERM and no -T specified
+[Kopen5gs exited with code 2 (restarting)
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | Run with --help for more information.
+[Ksrsran exited with code 103 (restarting)
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+[Ksrsran exited with code 103 (restarting)
+mongodb  | {"t":{"$date":"2025-11-12T14:11:13.979+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn11","msg":"client metadata","attr":{"remote":"127.0.0.1:38196","client":"conn11","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:14.011+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn12","msg":"client metadata","attr":{"remote":"127.0.0.1:38198","client":"conn12","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:14.011+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn13","msg":"client metadata","attr":{"remote":"127.0.0.1:38208","client":"conn13","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:14.015+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn14","msg":"client metadata","attr":{"remote":"127.0.0.1:38220","client":"conn14","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:14.017+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn15","msg":"client metadata","attr":{"remote":"127.0.0.1:38228","client":"conn15","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+[Ksrsran exited with code 103 (restarting)
+open5gs  | tput: No value for $TERM and no -T specified
+[Kopen5gs exited with code 2 (restarting)
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+mongodb  | {"t":{"$date":"2025-11-12T14:11:24.232+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn16","msg":"client metadata","attr":{"remote":"127.0.0.1:48466","client":"conn16","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:24.268+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn17","msg":"client metadata","attr":{"remote":"127.0.0.1:48474","client":"conn17","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:24.269+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn18","msg":"client metadata","attr":{"remote":"127.0.0.1:48486","client":"conn18","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:24.277+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn19","msg":"client metadata","attr":{"remote":"127.0.0.1:48492","client":"conn19","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:24.279+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn20","msg":"client metadata","attr":{"remote":"127.0.0.1:48498","client":"conn20","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+[Ksrsran exited with code 103 (restarting)
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+mongodb  | {"t":{"$date":"2025-11-12T14:11:34.501+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn21","msg":"client metadata","attr":{"remote":"127.0.0.1:54918","client":"conn21","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:34.533+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn22","msg":"client metadata","attr":{"remote":"127.0.0.1:54928","client":"conn22","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:34.534+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn23","msg":"client metadata","attr":{"remote":"127.0.0.1:54942","client":"conn23","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:34.537+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn24","msg":"client metadata","attr":{"remote":"127.0.0.1:54954","client":"conn24","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:34.539+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn25","msg":"client metadata","attr":{"remote":"127.0.0.1:54960","client":"conn25","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+[Ksrsran exited with code 103 (restarting)
+mongodb  | {"t":{"$date":"2025-11-12T14:11:44.752+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn26","msg":"client metadata","attr":{"remote":"127.0.0.1:35934","client":"conn26","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:44.786+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn27","msg":"client metadata","attr":{"remote":"127.0.0.1:35946","client":"conn27","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:44.787+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn28","msg":"client metadata","attr":{"remote":"127.0.0.1:35962","client":"conn28","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:44.790+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn29","msg":"client metadata","attr":{"remote":"127.0.0.1:35968","client":"conn29","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:44.792+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn30","msg":"client metadata","attr":{"remote":"127.0.0.1:35972","client":"conn30","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+open5gs  | tput: No value for $TERM and no -T specified
+[Kopen5gs exited with code 2 (restarting)
+mongodb  | {"t":{"$date":"2025-11-12T14:11:48.550+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"Checkpointer","msg":"WiredTiger message","attr":{"message":{"ts_sec":1762956708,"ts_usec":550958,"thread":"1:0x743676888640","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":6,"verbose_level":"DEBUG","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 3, snapshot max: 3 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 103"}}}
+srsran   | ====================================
+srsran   | 🚀 Starting srsRAN 5G gNB container
+srsran   | ====================================
+srsran   |  * Starting hotplug events dispatcher systemd-udevd
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (subsystems)...
+srsran   |    ...done.
+srsran   |  * Synthesizing the initial hotplug events (devices)...
+srsran   |    ...done.
+srsran   |  * Waiting for /dev to be fully populated...
+srsran   |    ...done.
+srsran   | 🔍 Detecting Ettus USRP devices...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | --------------------------------------------------
+srsran   | -- UHD Device 0
+srsran   | --------------------------------------------------
+srsran   | Device Address:
+srsran   |     serial: 3292BC5
+srsran   |     name: B205i
+srsran   |     product: B205mini
+srsran   |     type: b200
+srsran   | 
+srsran   | 
+srsran   | 🔄 Loading UHD images...
+srsran   | [INFO] [UHD] linux; GNU C++ version 11.2.0; Boost_107400; UHD_4.1.0.5-3
+srsran   | [INFO] [B200] Detected Device: B205mini
+srsran   | [INFO] [B200] Operating over USB 3.
+srsran   | [INFO] [B200] Initialize CODEC control...
+srsran   | [INFO] [B200] Initialize Radio control...
+srsran   | [INFO] [B200] Performing register loopback test... 
+srsran   | [INFO] [B200] Register loopback test passed
+srsran   | [INFO] [B200] Setting master clock rate selection to 'automatic'.
+srsran   | [INFO] [B200] Asking for clock rate 16.000000 MHz... 
+srsran   | [INFO] [B200] Actually got clock rate 16.000000 MHz.
+srsran   |   _____________________________________________________
+srsran   |  /
+srsran   | |       Device: B-Series Device
+srsran   | |     _____________________________________________________
+srsran   | |    /
+srsran   | |   |       Mboard: B205mini
+srsran   | |   |   serial: 3292BC5
+srsran   | |   |   name: B205i
+srsran   | |   |   product: 30522
+srsran   | |   |   revision: 6
+srsran   | |   |   FW Version: 8.0
+srsran   | |   |   FPGA Version: 7.0
+srsran   | |   |   
+srsran   | |   |   Time sources:  none, internal, external
+srsran   | |   |   Clock sources: internal, external
+srsran   | |   |   Sensors: ref_locked
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       RX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Frontend: A
+srsran   | |   |   |   |   Name: FE-RX1
+srsran   | |   |   |   |   Antennas: TX/RX, RX2
+srsran   | |   |   |   |   Sensors: temp, rssi, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 76.0 step 1.0 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       RX Codec: A
+srsran   | |   |   |   |   Name: B205mini RX dual ADC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX DSP: 0
+srsran   | |   |   |   
+srsran   | |   |   |   Freq range: -8.000 to 8.000 MHz
+srsran   | |   |     _____________________________________________________
+srsran   | |   |    /
+srsran   | |   |   |       TX Dboard: A
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Frontend: A
+srsran   | |   |   |   |   Name: FE-TX1
+srsran   | |   |   |   |   Antennas: TX/RX
+srsran   | |   |   |   |   Sensors: temp, lo_locked
+srsran   | |   |   |   |   Freq range: 50.000 to 6000.000 MHz
+srsran   | |   |   |   |   Gain range PGA: 0.0 to 89.8 step 0.2 dB
+srsran   | |   |   |   |   Bandwidth range: 200000.0 to 56000000.0 step 0.0 Hz
+srsran   | |   |   |   |   Connection Type: IQ
+srsran   | |   |   |   |   Uses LO offset: No
+srsran   | |   |   |     _____________________________________________________
+srsran   | |   |   |    /
+srsran   | |   |   |   |       TX Codec: A
+srsran   | |   |   |   |   Name: B205mini TX dual DAC
+srsran   | |   |   |   |   Gain Elements: None
+srsran   | 
+srsran   | ⚙️ Starting srsRAN gNB using config: /config/active_config/srsran/gnb.conf
+srsran   | ➡️ Using binary: gnb (srsRAN Project 5G)
+srsran   | 
+srsran   | --== srsRAN gNB (commit d2f4b70) ==--
+srsran   | 
+srsran   | Error parsing YAML configuration file: invalid node; this may result from using a map iterator as a sequence iterator, or vice-versa
+srsran   | Run with --help for more information.
+[Ksrsran exited with code 103 (restarting)
+mongodb  | {"t":{"$date":"2025-11-12T14:11:55.001+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn31","msg":"client metadata","attr":{"remote":"127.0.0.1:56880","client":"conn31","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:55.034+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn32","msg":"client metadata","attr":{"remote":"127.0.0.1:56892","client":"conn32","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:55.034+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn33","msg":"client metadata","attr":{"remote":"127.0.0.1:56902","client":"conn33","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:55.038+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn34","msg":"client metadata","attr":{"remote":"127.0.0.1:56912","client":"conn34","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+mongodb  | {"t":{"$date":"2025-11-12T14:11:55.039+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn35","msg":"client metadata","attr":{"remote":"127.0.0.1:56914","client":"conn35","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+[34m🌅 Starting 5GSA Docker environment...
+--------------------------------------(B[m
+[34m📦 Running config initialization...(B[m
+[34m🔨 Checking Open5GS config directory...(B[m
+[32m✅ Open5GS config OK.(B[m
+[33m📦 Extracting default srsRAN config...(B[m
+⚠️ No default config folder found in image!
+[32m✅ Default srsRAN config extracted (best match found).(B[m
+time="2025-11-12T15:12:11+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[33m⚙️ Stack already running.(B[m
+[34m🌅 Starting 5GSA Docker environment...
+--------------------------------------(B[m
+[34m📦 Checking configurations...(B[m
+[34m🔨 Checking Open5GS config directory...(B[m
+[32m✅ Open5GS config OK.(B[m
+[33m📦 Extracting default srsRAN config...(B[m
+⚠️ No default config folder found in image!
+[32m✅ Default srsRAN config extracted (best match found).(B[m
+time="2025-11-12T15:16:04+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[34m🚀 Launching containers...(B[m
+time="2025-11-12T15:16:04+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Network emt_5gsa_docker_open5gs-net  Creating
+ Network emt_5gsa_docker_open5gs-net  Created
+ Container mongodb  Creating
+ Container mongodb  Created
+ Container open5gs  Creating
+ Container open5gs  Created
+ Container srsran  Creating
+ Container srsran  Created
+ Container mongodb  Starting
+ Container mongodb  Started
+ Container mongodb  Waiting
+ Container mongodb  Healthy
+ Container open5gs  Starting
+ Container open5gs  Started
+ Container srsran  Starting
+ Container srsran  Started
+
+[32m📦 Active containers:(B[m
+mongodb   Up 9 seconds (healthy)                     0.0.0.0:27017->27017/tcp, [::]:27017->27017/tcp
+NAMES     STATUS                                     PORTS
+open5gs   Restarting (2) Less than a second ago      
+srsran    Up Less than a second (health: starting)   
+
+[33m🧱 [1/5] MongoDB — Database initialization(B[m
+[34m📄 Logs from mongodb (last 20 lines)(B[m
+   {"t":{"$date":"2025-11-12T14:16:05.276+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":285}}
+   {"t":{"$date":"2025-11-12T14:16:05.276+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+   {"t":{"$date":"2025-11-12T14:16:05.279+00:00"},"s":"W",  "c":"CONTROL",  "id":22120,   "ctx":"initandlisten","msg":"Access control is not enabled for the database. Read and write access to data and configuration is unrestricted","tags":["startupWarnings"]}
+   {"t":{"$date":"2025-11-12T14:16:05.279+00:00"},"s":"W",  "c":"CONTROL",  "id":22138,   "ctx":"initandlisten","msg":"You are running this process as the root user, which is not recommended","tags":["startupWarnings"]}
+   {"t":{"$date":"2025-11-12T14:16:05.280+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":17},"outgoing":{"minWireVersion":6,"maxWireVersion":17},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":17},"incomingInternalClient":{"minWireVersion":17,"maxWireVersion":17},"outgoing":{"minWireVersion":17,"maxWireVersion":17},"isInternalClient":true}}}
+   {"t":{"$date":"2025-11-12T14:16:05.280+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"6.0","context":"startup"}}
+   {"t":{"$date":"2025-11-12T14:16:05.280+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+   {"t":{"$date":"2025-11-12T14:16:05.281+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+   {"t":{"$date":"2025-11-12T14:16:05.281+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0"}}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+   {"t":{"$date":"2025-11-12T14:16:05.283+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"0 ms","Create storage engine":"286 ms","Write current PID to file":"0 ms","Write current PID to file":"0 ms","Initialize FCV before rebuilding indexes":"0 ms","Initialize FCV before rebuilding indexes":"1 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Rebuild indexes for collections":"0 ms","Build user and roles graph":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Start transport layer":"0 ms","_initAndListen total elapsed time":"294 ms"}}}}
+   {"t":{"$date":"2025-11-12T14:16:10.172+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn1","msg":"client metadata","attr":{"remote":"127.0.0.1:52330","client":"conn1","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:16:10.203+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn2","msg":"client metadata","attr":{"remote":"127.0.0.1:52338","client":"conn2","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:16:10.203+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn3","msg":"client metadata","attr":{"remote":"127.0.0.1:52352","client":"conn3","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:16:10.206+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn4","msg":"client metadata","attr":{"remote":"127.0.0.1:52366","client":"conn4","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+   {"t":{"$date":"2025-11-12T14:16:10.208+00:00"},"s":"I",  "c":"NETWORK",  "id":51800,   "ctx":"conn5","msg":"client metadata","attr":{"remote":"127.0.0.1:52368","client":"conn5","negotiatedCompressors":[],"doc":{"application":{"name":"mongosh 2.5.8"},"driver":{"name":"nodejs|mongosh","version":"6.19.0|2.5.8"},"platform":"Node.js v20.19.5, LE","os":{"name":"linux","architecture":"x64","version":"3.10.0-327.22.2.el7.x86_64","type":"Linux"},"env":{"container":{"runtime":"docker"}}}}}
+
+[33m🌐 [2/5] Open5GS — Core network startup(B[m
+[34m🔗 Testing connectivity from open5gs → mongodb:27017 ...(B[m
+Error response from daemon: Container 55e97e709030af4fd72b53774aae064cbb0393f0c8fd50e137c9df29ae97a2b8 is restarting, wait until the container is running
+[31m❌ Connection failed(B[m
+
+[34m📄 Logs from open5gs (last 20 lines)(B[m
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+   tput: No value for $TERM and no -T specified
+
+[34m📊 Health check for Open5GS NF processes...(B[m
+Error response from daemon: Container 55e97e709030af4fd72b53774aae064cbb0393f0c8fd50e137c9df29ae97a2b8 is restarting, wait until the container is running
+[33m📡 [3/5] srsRAN gNB — Radio unit startup(B[m
+[34m🔗 Testing connectivity from srsran-gnb → mongodb:27017 ...(B[m
+Error response from daemon: No such container: srsran-gnb
+[31m❌ Connection failed(B[m
+
+[34m📄 Logs from srsran-gnb (last 50 lines)(B[m
+   Error response from daemon: No such container: srsran-gnb
+
+[34m📊 [4/5] Container Health Summary:(B[m
+/srsran: starting
+/open5gs: unhealthy
+/mongodb: healthy
+[32m✅ [5/5] Startup sequence complete.(B[m
+
+💾 Logs saved to: logs/5gsa_startup.log
+📡 To follow logs later, run: docker compose logs --tail 50

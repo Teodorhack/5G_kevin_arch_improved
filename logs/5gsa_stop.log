@@ -1,0 +1,40 @@
+[34m🌇 Shutting down 5GSA environment...(B[m
+time="2025-11-12T15:08:18+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container srsran  Stopping
+ Container srsran  Stopped
+ Container srsran  Removing
+ Container srsran  Removed
+ Container open5gs  Stopping
+ Container open5gs  Stopped
+ Container open5gs  Removing
+ Container open5gs  Removed
+ Container mongodb  Stopping
+ Container mongodb  Stopped
+ Container mongodb  Removing
+ Container mongodb  Removed
+ Network emt_5gsa_docker_open5gs-net  Removing
+ Network emt_5gsa_docker_open5gs-net  Removed
+[32m✅ Environment stopped.(B[m
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[34m🌇 Shutting down 5GSA environment...(B[m
+time="2025-11-12T15:12:17+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container srsran  Stopping
+ Container srsran  Stopped
+ Container srsran  Removing
+ Container srsran  Removed
+ Container open5gs  Stopping
+ Container open5gs  Stopped
+ Container open5gs  Removing
+ Container open5gs  Removed
+ Container mongodb  Stopping
+ Container mongodb  Stopped
+ Container mongodb  Removing
+ Container mongodb  Removed
+ Network emt_5gsa_docker_open5gs-net  Removing
+ Network emt_5gsa_docker_open5gs-net  Removed
+[32m✅ Environment stopped.(B[m
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[34m🌇 Shutting down 5GSA environment...(B[m
+time="2025-11-12T15:15:57+01:00" level=warning msg="/home/teo/bachelor/november/emt_5gsa_docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+[32m✅ Environment stopped.(B[m
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES

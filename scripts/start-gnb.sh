@@ -26,7 +26,7 @@ uhd_usrp_probe || echo "⚠️ Warning: UHD probe failed, continuing..."
 # -------------------------------------------------------
 # Launch the srsRAN 5G gNB with config file
 # -------------------------------------------------------
-CONFIG_FILE="/config/active_config/srsran/gnb.conf"
+CONFIG_FILE="/config/active_config/srsran/gnb.ini"
 
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "❌ Config file not found: $CONFIG_FILE"
@@ -49,7 +49,7 @@ echo "⚙️ Starting srsRAN gNB using config: $CONFIG_FILE"
 # -------------------------------------------------------
 if command -v gnb &> /dev/null; then
   echo "➡️ Using binary: gnb (srsRAN Project 5G)"
-  exec gnb -c /config/active_config/srsran/gnb.conf
+  exec gnb -c "$CONFIG_FILE"
 elif command -v srsgnb &> /dev/null; then
   echo "➡️ Using binary: srsgnb (legacy)"
   exec srsgnb --config_file "$CONFIG_FILE"
