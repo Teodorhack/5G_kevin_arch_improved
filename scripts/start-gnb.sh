@@ -38,13 +38,25 @@ echo "⚙️ Starting srsRAN gNB using config: $CONFIG_FILE"
 # -------------------------------------------------------
 # Auto-detect which binary is available and launch it
 # -------------------------------------------------------
-if command -v srsgnb &> /dev/null; then
-  echo "➡️ Using binary: srsgnb (5G SA)"
+# -------------------------------------------------------
+# Auto-detect binary and launch with correct syntax
+# -------------------------------------------------------
+# -------------------------------------------------------
+# Auto-detect binary and launch with correct syntax
+# -------------------------------------------------------
+# -------------------------------------------------------
+# Auto-detect binary and launch with correct syntax
+# -------------------------------------------------------
+if command -v gnb &> /dev/null; then
+  echo "➡️ Using binary: gnb (srsRAN Project 5G)"
+  exec gnb -c /config/active_config/srsran/gnb.conf
+elif command -v srsgnb &> /dev/null; then
+  echo "➡️ Using binary: srsgnb (legacy)"
   exec srsgnb --config_file "$CONFIG_FILE"
 elif command -v srsran_app &> /dev/null; then
   echo "➡️ Using binary: srsran_app"
   exec srsran_app gnb --config_file "$CONFIG_FILE"
 else
-  echo "❌ No srsRAN 5G binary found (srsgnb / srsran_app missing)"
+  echo "❌ No srsRAN 5G binary found (gnb / srsgnb / srsran_app missing)"
   sleep infinity
 fi
