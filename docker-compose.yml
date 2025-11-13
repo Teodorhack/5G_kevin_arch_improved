@@ -95,6 +95,7 @@ services:
     volumes:
       - ./scripts:/scripts
       - ./external/srsran-src:/srsran-src
+      # ASIGURĂ-TE CĂ ACEASTĂ CALE EXISTĂ PE HOST!
       - ./config/active_config/srsran:/srsran-config
 
     # 🩺 Healthcheck — verifică dacă procesul gNB rulează

@@ -1,3 +1,33 @@
+asta e beton
+
+#sudo docker compose logs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 🧱 1. Show all running containers (quick overview)
 echo "=== [1/7] Active Containers ==="
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}" | sort
