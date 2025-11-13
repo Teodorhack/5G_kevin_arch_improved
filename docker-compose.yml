@@ -95,7 +95,7 @@ services:
     volumes:
       - ./scripts:/scripts
       - ./external/srsran-src:/srsran-src
-      - ./config/active_config/srsran:/config/active_config/srsran
+      - ./config/active_config/srsran:/srsran-config
 
     # 🩺 Healthcheck — verifică dacă procesul gNB rulează
     healthcheck:
