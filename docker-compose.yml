@@ -77,7 +77,7 @@ services:
     container_name: srsran
     depends_on:
       - open5gs
-    restart: unless-stopped
+    #restart: unless-stopped
     privileged: true
     networks:
       - open5gs-net
